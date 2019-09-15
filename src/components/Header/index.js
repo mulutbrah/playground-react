@@ -5,10 +5,9 @@ import { AuthContext } from "contexts/AuthContext";
 import "./style.scss";
 
 function Header() {
-  const { authenticated, userAuthenticated } = useContext(AuthContext);
-
-  console.log("context: ", authenticated);
-  console.log("context: ", userAuthenticated);
+  const { authenticated, userAuthenticated, login, logout } = useContext(
+    AuthContext
+  );
 
   return (
     <header className="ml-header">
@@ -17,8 +16,13 @@ function Header() {
         <input type="search" />
       </div>
       <div>
-        <button>Login</button>
+        {authenticated ? (
+          <button onClick={logout}>Logout</button>
+        ) : (
+          <button onClick={login}>Login</button>
+        )}
       </div>
+      {authenticated && <span>{userAuthenticated.email}</span>}
     </header>
   );
 }

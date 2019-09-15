@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
 
-import { AuthContext } from "contexts/AuthContext";
+import { AuthContext } from 'contexts/AuthContext';
 
-import "./style.scss";
+import './style.scss';
 
 function Header() {
   const { authenticated, userAuthenticated, login, logout } = useContext(

@@ -1,18 +1,14 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 
-import AuthContext from "context/authContext";
+import { AuthContext } from "contexts/AuthContext";
 
 import "./style.scss";
 
-export default function Header(props) {
-  // consumer
-  const authContext = useContext(AuthContext);
+function Header() {
+  const { authenticated, userAuthenticated } = useContext(AuthContext);
 
-  console.log("context: ", props.context);
-
-  useEffect(() => {
-    console.log(authContext);
-  }, []);
+  console.log("context: ", authenticated);
+  console.log("context: ", userAuthenticated);
 
   return (
     <header className="ml-header">
@@ -21,9 +17,10 @@ export default function Header(props) {
         <input type="search" />
       </div>
       <div>
-        {JSON.stringify(authContext)}
         <button>Login</button>
       </div>
     </header>
   );
 }
+
+export default React.memo(Header);

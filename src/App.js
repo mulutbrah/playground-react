@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import AuthContext from "context/authContext";
+import AuthContext from "contexts/AuthContext";
 
 import Header from "components/Header";
 
@@ -23,9 +23,9 @@ function App() {
 
   return (
     <div className="App">
-      <AuthContext.Provider value={{ color: "pink" }}>
+      <AuthContext>
         <Header />
-      </AuthContext.Provider>
+      </AuthContext>
     </div>
   );
 }

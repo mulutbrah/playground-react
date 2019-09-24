@@ -1,18 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 
-import AuthContext from "contexts/AuthContext";
+import Home from 'pages/home';
 
-import Header from "components/Header";
+import AuthContext from 'contexts/AuthContext';
 
-import "./App.css";
+import Header from 'components/Header';
+
+import './App.css';
 
 function App() {
   // componentDidMount()
   useEffect(() => {
-    console.log("[App.js] componentDidMount");
+    console.log('[App.js] componentDidMount');
 
     return () => {
-      console.log("[App.js] componentDidUnmount");
+      console.log('[App.js] componentDidUnmount');
     };
   }, []);
 
@@ -25,6 +27,7 @@ function App() {
     <div className="App">
       <AuthContext>
         <Header />
+        <Home />
       </AuthContext>
     </div>
   );

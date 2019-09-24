@@ -1,0 +1,43 @@
+.homepage {
+  border-radius: 7px;
+  margin: 0 auto;
+  width: 35rem;
+
+  .header {
+    font-size: 2.3rem;
+    margin: 2rem 0;
+  }
+
+  &--white {
+    background: #fff;
+    border: solid 1px #eee;
+    color: #282828;
+  }
+
+  &--black {
+    background: #000;
+    border: solid 1px #fff;
+    color: #fff;
+  }
+
+  .list {
+    padding: 0px;
+
+    li {
+      border-bottom: solid 1px #bdbdbd;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+      padding: 0.5rem 1rem;
+      width: 25rem;
+
+      .dlt-btn {
+        color: orangered;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

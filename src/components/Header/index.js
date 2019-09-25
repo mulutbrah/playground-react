@@ -21,8 +21,10 @@ function Header() {
         ) : (
           <button onClick={login}>Login</button>
         )}
+        <div>
+          {authenticated && <span>{userAuthenticated.username}</span>}
+        </div>
       </div>
-      {authenticated && <span>{userAuthenticated.email}</span>}
     </header>
   );
 }

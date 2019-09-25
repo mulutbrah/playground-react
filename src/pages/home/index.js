@@ -8,7 +8,8 @@ const Home = () => {
     JSON.parse(localStorage.getItem('todo')) || []
   );
 
-  const createTodo = () => {
+  const createTodo = (e) => {
+    e.preventDefault();
     const MY_TODO = JSON.parse(localStorage.getItem('todo'));
 
     if (MY_TODO) {
@@ -37,15 +38,17 @@ const Home = () => {
   return (
     <div className="homepage homepage--white">
       <h4>To-Do List</h4>
-      <input
-        className="input"
-        type="text"
-        name="title"
-        onChange={handleChange}
-        value={todo}
-      />
-      {/* <input type="text" name="title" onChange={(e) => handleChange(event.target.value)} value={todo} /> */}
-      <button onClick={createTodo}>Create</button>
+      <form onSubmit={createTodo}>
+        <input
+          className="input"
+          type="text"
+          name="title"
+          onChange={handleChange}
+          value={todo}
+        />
+        {/* <input type="text" name="title" onChange={(e) => handleChange(event.target.value)} value={todo} /> */}
+        <button type="submit">Create</button>
+      </form>
       <div className="todo todo--container">
         <ol className="list">
           {myTodo &&

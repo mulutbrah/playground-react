@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { AuthContext } from 'contexts/AuthContext';
 
@@ -8,12 +8,17 @@ function Header() {
   const { authenticated, userAuthenticated, login, logout } = useContext(
     AuthContext
   );
+  const [search, setSearch] = useState('');
+
+  const handleChange = (event) => {
+    setSearch(event.target.value);
+  };
 
   return (
     <header className="ml-header">
       <div>Logo</div>
       <div>
-        <input type="search" />
+        <input type="search" value={search} onChange={handleChange} />
       </div>
       <div>
         {authenticated ? (
@@ -21,9 +26,7 @@ function Header() {
         ) : (
           <button onClick={login}>Login</button>
         )}
-        <div>
-          {authenticated && <span>{userAuthenticated.username}</span>}
-        </div>
+        <div>{authenticated && <span>{userAuthenticated.username}</span>}</div>
       </div>
     </header>
   );

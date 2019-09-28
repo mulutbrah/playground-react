@@ -4,10 +4,10 @@ import './style.scss';
 
 const Home = () => {
   const [todo, setTodo] = useState('');
-  const [myTodo, setMyTodo] = useState(
+  const [myTodos, setMyTodos] = useState(
     JSON.parse(localStorage.getItem('todo')) || []
   );
-  const [filteredProduct, setFilteredProduct] = useState();
+  const [filteredTodos, setFilteredTodos] = useState();
 
   const createTodo = (e) => {
     e.preventDefault();
@@ -15,10 +15,10 @@ const Home = () => {
 
     if (MY_TODO) {
       MY_TODO.push(todo);
-      setMyTodo(MY_TODO);
+      setMyTodos(MY_TODO);
       setTodo('');
     } else {
-      setMyTodo([todo]);
+      setMyTodos([todo]);
     }
   };
 
@@ -27,15 +27,15 @@ const Home = () => {
   };
 
   const deleteTodo = (index) => {
-    const temp = myTodo.slice();
+    const temp = myTodos.slice();
     temp.splice(index, 1);
-    setMyTodo(temp);
+    setMyTodos(temp);
   };
 
   useEffect(() => {
-    localStorage.setItem('todo', JSON.stringify(myTodo));
-    setFilteredProduct(myTodo);
-  }, [myTodo]);
+    localStorage.setItem('todo', JSON.stringify(myTodos));
+    setFilteredTodos(myTodos);
+  }, [myTodos]);
 
   return (
     <div className="homepage homepage--white">
@@ -53,8 +53,8 @@ const Home = () => {
       </form>
       <div className="todo todo--container">
         <ol className="list">
-          {filteredProduct &&
-            filteredProduct.map((todo, index) => (
+          {filteredTodos &&
+            filteredTodos.map((todo, index) => (
               <li>
                 <div>{`${index + 1}. ${todo}`}</div>
                 <div className="dlt-btn" onClick={() => deleteTodo(index)}>

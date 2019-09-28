@@ -7,6 +7,7 @@ const Home = () => {
   const [myTodo, setMyTodo] = useState(
     JSON.parse(localStorage.getItem('todo')) || []
   );
+  const [filteredProduct, setFilteredProduct] = useState();
 
   const createTodo = (e) => {
     e.preventDefault();
@@ -33,6 +34,7 @@ const Home = () => {
 
   useEffect(() => {
     localStorage.setItem('todo', JSON.stringify(myTodo));
+    setFilteredProduct(myTodo);
   }, [myTodo]);
 
   return (
@@ -51,8 +53,8 @@ const Home = () => {
       </form>
       <div className="todo todo--container">
         <ol className="list">
-          {myTodo &&
-            myTodo.map((todo, index) => (
+          {filteredProduct &&
+            filteredProduct.map((todo, index) => (
               <li>
                 <div>{`${index + 1}. ${todo}`}</div>
                 <div className="dlt-btn" onClick={() => deleteTodo(index)}>

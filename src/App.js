@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 
 import Home from 'pages/home';
+import Swapi from 'pages/swapi';
 
 import AuthContext from 'contexts/AuthContext';
 
@@ -27,7 +28,7 @@ function App() {
     <div className="App">
       <AuthContext>
         <Header />
-        <Home />
+        <Swapi />
       </AuthContext>
     </div>
   );

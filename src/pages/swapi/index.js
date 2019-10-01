@@ -18,16 +18,14 @@ export default function Swapi() {
   }, []);
 
   return (
-    <div>
+    <div className="swapi">
       {people &&
         people.map((person) => (
-          <div>
-            <ul className="list">
-              <li>{person.name}</li>
-              <li>{person.gender}</li>
-              <li>{person.birth_year}</li>
-            </ul>
-          </div>
+          <ul className="list">
+            <li>Name: {person.name}</li>
+            <li>Gender: {person.gender}</li>
+            <li>Birth Year: {person.birth_year}</li>
+          </ul>
         ))}
     </div>
   );
